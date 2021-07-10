@@ -24,3 +24,36 @@ function buildTable(data) {
         );
     });
 }
+
+//With this function, we have done the following:
+//Looped through each object in the array
+//Appended a row to the HTML table
+//Added each value from the object into a cell
+
+// adding a date function, to filter through the table that was created.
+function handleClick() {
+    //using d3 js library, Data-Driven Documents (D3 for short),
+    // we're going to use D3 to handle an action from a user, such as a button click
+    //The selector string is the item we're telling D3.js to look for.
+    // once we get what we're looking for, .property("value") tells js to actually grab that information and hold it in the "date" variable.
+    let date = d3.select("#datetime").property("value");
+
+    let filteredData = tableData;
+    
+    if (date) {
+        // We want JavaScript to check for a date. If one is present, we want it to return only the data with that date
+        //triple equal signs means, date in the table has to match our filter exactly
+        filteredData = filteredData.filter(row => row.datetime === date);
+        //It's basically saying, "Show only the rows where the date is equal to the date filter we created above.
+    };
+    // Rebuild the table using the filtered data
+    // @NOTE: If no date was entered, then filteredData will
+    // just be the original tableData.
+  buildTable(filteredData);
+}
+  // Our selector string contains the id for another HTML tag. We'll assign a unique id to a button element in the HTML called "filter-btn".
+  // by adding .on("click", handleClick);, we're telling D3 to execute our handleClick() function when the button with an id of filter-btn is clicked
+  d3.selectAll("#filter-btn").on("click", handleClick);
+
+  // Build the table when the page loads
+  buildTable(tableData);
