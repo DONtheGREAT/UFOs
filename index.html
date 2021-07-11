@@ -53,7 +53,7 @@
     <!--Container for the table and filter-->
     <div class="container-fluid">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-2">
             <form class="bg-dark">
                 <p>Filter Search</p>
                 <ul class="list-group bg-dark">
@@ -67,16 +67,26 @@
                     <input type="text" placeholder="1/10/2010" id="datetime" />
                 </li>
                 <li class="list-group-item bg-dark">
-                    <!-- filter button that js code will look for-->
-                    <!--the button class will cause bootstrap to add a style-->
-                    <button id="filter-btn" type="button" class="btn btn-dark">Filter Table</button>
-                
+                  <label for="city">Enter a City</label>
+                  <input type="text" placeholder="roswell" id="city" />
+                </li>
+                <li class="list-group-item bg-dark">
+                  <label for="state">Enter a State</label>
+                  <input type="text" placeholder="ca" id="state" />
+                </li>
+                <li class="list-group-item bg-dark">
+                  <label for="country">Enter a Country</label>
+                  <input type="text" placeholder="us" id="country" />
+                </li>
+                <li class="list-group-item bg-dark">
+                  <label for="shape">Enter a Shape</label>
+                  <input type="text" placeholder="circle" id="shape" />
                 </li>
                 </ul>
               </form>
 
           </div>
-          <div class="col-md-9">
+          <div class="col-md-10">
               <!--bootstrap styling-->
             <table class="table table-striped">
                 <thead>
